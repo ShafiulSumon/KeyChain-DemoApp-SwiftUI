@@ -6,14 +6,35 @@
 //
 
 import SwiftUI
+import Security
 
 struct ContentView: View {
+    
+    @State var status: String = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            HStack {
+                
+                NavigationLink("Set user data!") {
+                    SetDataView()
+                }
+                .frame(width: 150, height: 50)
+                .background(.green)
+                .foregroundColor(.white)
+                .cornerRadius(8)
+                
+                Spacer().frame(width: 20)
+                
+                NavigationLink("Get user Data") {
+                    GetDataView()
+                }
+                .frame(width: 150, height: 50)
+                .background(.orange)
+                .foregroundColor(.white)
+                .cornerRadius(8)
+            }
+            .navigationTitle("KeyChain")
         }
         .padding()
     }
